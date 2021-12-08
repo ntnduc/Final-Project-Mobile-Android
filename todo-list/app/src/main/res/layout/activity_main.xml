@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:background="@color/black">
+
+        <Button
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shadowColor="#8E4A4A"
+            android:text="Ngày của tôi"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textColorHighlight="#B14343"
+            android:textColorLink="#B87676"
+            app:icon="@drawable/ic_sun_20"
+            app:iconTint="@color/icon_myday"
+            app:rippleColor="#FBFBFB" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quan trọng"
+        android:textAlignment="textStart"
+        app:icon="@drawable/ic_baseline_star_border_20"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đã giao cho tôi"
+        android:textAlignment="textStart"
+        app:icon="@drawable/ic_baseline_person_outline_18"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tác vụ"
+        android:textAlignment="textStart"
+        app:icon="@drawable/ic_baseline_published_with_changes_24"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

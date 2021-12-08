@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--    home screen     -->
+    <color name="icon_myday">#008DE3</color>
+    <color name="icon_baseline">#F324D7</color>
+    <color name="icon_persion">#31EA08</color>
+    <color name="icon_check">#F04C0F</color>
 </resources>
