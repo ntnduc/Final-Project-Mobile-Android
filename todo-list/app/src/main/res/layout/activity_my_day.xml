@@ -5,5 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MyDayActivity">
-
+   <androidx.recyclerview.widget.RecyclerView
+       android:layout_marginLeft="6dp"
+       android:layout_marginRight="6dp"
+       android:id="@+id/rc_myday"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
