@@ -13,4 +13,7 @@
     <color name="icon_baseline">#F324D7</color>
     <color name="icon_persion">#31EA08</color>
     <color name="icon_check">#F04C0F</color>
+
+    <!-- task screen -->
+    <color name="title_done">#159C0C</color>
 </resources>

@@ -46,7 +46,6 @@ public class TaskMydayAdapter extends RecyclerView.Adapter<TaskMydayAdapter.View
             btStar = listItemView.findViewById(R.id.bt_star);
 
 
-
         }
     }
 }
