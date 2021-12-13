@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/margin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_boder_task"
+    android:orientation="horizontal"
+    android:layout_marginTop="3dp"
+    android:textAlignment="center">
+
+    <RadioButton
+        android:id="@+id/radio_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_task"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:text="Không tìm thấy tên sự kiện"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/bt_star"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        app:icon="@drawable/ic_baseline_star_border_20"
+        app:iconTint="@color/white" />
+
+</LinearLayout>
