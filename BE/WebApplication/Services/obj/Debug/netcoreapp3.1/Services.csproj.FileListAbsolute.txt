@@ -1,0 +1,12 @@
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/Services/bin/Debug/netcoreapp3.1/Services.deps.json
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/Services/bin/Debug/netcoreapp3.1/Services.dll
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/Services/bin/Debug/netcoreapp3.1/Services.pdb
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/Services/bin/Debug/netcoreapp3.1/DB.dll
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/Services/bin/Debug/netcoreapp3.1/DB.pdb
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/Services/obj/Debug/netcoreapp3.1/Services.csprojAssemblyReference.cache
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/Services/obj/Debug/netcoreapp3.1/Services.AssemblyInfoInputs.cache
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/Services/obj/Debug/netcoreapp3.1/Services.AssemblyInfo.cs
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/Services/obj/Debug/netcoreapp3.1/Services.csproj.CoreCompileInputs.cache
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/Services/obj/Debug/netcoreapp3.1/Services.csproj.CopyComplete
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/Services/obj/Debug/netcoreapp3.1/Services.dll
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/Services/obj/Debug/netcoreapp3.1/Services.pdb

@@ -3,14 +3,18 @@ package com.example.todolist;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.os.Bundle;
 
+import android.content.res.AssetManager;
+import android.os.Bundle;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 
 public class MyDayActivity extends AppCompatActivity {
     RecyclerView recyclerView;
-    TaskMydayAdapter adapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +22,7 @@ public class MyDayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_day);
         recyclerView = findViewById(R.id.rc_myday);
 
-        adapter = new TaskMydayAdapter();
+        TaskMydayAdapter adapter = new TaskMydayAdapter();
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setAdapter(adapter);

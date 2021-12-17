@@ -1,0 +1,80 @@
+{
+  "format": 1,
+  "restore": {
+    "/Volumes/DUCNHAT/Android/final-project-mobile/Back-end/Todo.DB/Todo.DB.csproj": {}
+  },
+  "projects": {
+    "/Volumes/DUCNHAT/Android/final-project-mobile/Back-end/Todo.DB/Todo.DB.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Volumes/DUCNHAT/Android/final-project-mobile/Back-end/Todo.DB/Todo.DB.csproj",
+        "projectName": "Todo.DB",
+        "projectPath": "/Volumes/DUCNHAT/Android/final-project-mobile/Back-end/Todo.DB/Todo.DB.csproj",
+        "packagesPath": "/Users/nguyentrannhatduc/.nuget/packages/",
+        "outputPath": "/Volumes/DUCNHAT/Android/final-project-mobile/Back-end/Todo.DB/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/nguyentrannhatduc/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "http://pkg.idtek.com.vn/nuget/default-nuget/": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.415/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

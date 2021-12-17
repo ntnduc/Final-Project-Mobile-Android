@@ -1,0 +1,12 @@
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/DB/bin/Debug/netcoreapp3.1/DB.deps.json
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/DB/bin/Debug/netcoreapp3.1/DB.runtimeconfig.json
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/DB/bin/Debug/netcoreapp3.1/DB.runtimeconfig.dev.json
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/DB/bin/Debug/netcoreapp3.1/DB.dll
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/DB/bin/Debug/netcoreapp3.1/DB.pdb
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/DB/obj/Debug/netcoreapp3.1/DB.csprojAssemblyReference.cache
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/DB/obj/Debug/netcoreapp3.1/DB.AssemblyInfoInputs.cache
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/DB/obj/Debug/netcoreapp3.1/DB.AssemblyInfo.cs
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/DB/obj/Debug/netcoreapp3.1/DB.csproj.CoreCompileInputs.cache
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/DB/obj/Debug/netcoreapp3.1/DB.dll
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/DB/obj/Debug/netcoreapp3.1/DB.pdb
+/Volumes/DUCNHAT/Android/final-project-mobile/BE/WebApplication/DB/obj/Debug/netcoreapp3.1/DB.genruntimeconfig.cache
