@@ -1,57 +1,58 @@
 package com.example.todolist;
 
 public class DataTask {
-    private int id;
-    private String title;
-    private Boolean done;
-    private Boolean important;
+    private String id;
+    private String value;
+    private Boolean check;
+    private Boolean mark;
 
-    public DataTask(int id,String title, Boolean done, Boolean important){
+    DataTask(String id, String value, Boolean check, Boolean mark){
         super();
         this.id = id;
-        this.title = title;
-        this.done = done;
-        this.important = important;
+        this.value = value;
+        this.check = check;
+        this.mark = mark;
     }
 
-    public void setDone(Boolean done) {
-        this.done = done;
+    public String getId() {
+        return id;
     }
 
-    public void setImportant(Boolean important) {
-        this.important = important;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setId(int id){
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Boolean getDone() {
-        return done;
+    public String getValue() {
+        return value;
     }
 
-    public Boolean getImportant() {
-        return important;
+    public void setValue(String value) {
+        this.value = value;
     }
 
-    public String getTitle() {
-        return title;
+    public Boolean getCheck() {
+        return check;
     }
 
-    public int getId(){
-        return id;
+    public void setCheck(Boolean check) {
+        this.check = check;
+    }
+
+    public Boolean getMark() {
+        return mark;
+    }
+
+    public void setMark(Boolean mark) {
+        this.mark = mark;
     }
 
     @Override
     public String toString() {
         return "DataTask{" +
-                "title='" + title + '\'' +
-                ", done=" + done +
-                ", important=" + important +
+                "id=" + id +
+                ", value='" + value + '\'' +
+                ", check=" + check +
+                ", mark=" + mark +
                 '}';
     }
 }
