@@ -42,8 +42,12 @@ public class TaskMydayAdapter extends RecyclerView.Adapter<TaskMydayAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String nameTask = dataTasks.get(position).getValue();
+        DataTask objectDataTask = dataTasks.get(position);
+        String nameTask = objectDataTask.getValue();
+        boolean isDone = objectDataTask.getCheck();
+
         holder.tvName.setText(nameTask);
+        holder.radioDone.setChecked(isDone);
     }
 
     @Override
@@ -63,7 +67,18 @@ public class TaskMydayAdapter extends RecyclerView.Adapter<TaskMydayAdapter.View
             tvName = listItemView.findViewById(R.id.tv_task);
             btStar = listItemView.findViewById(R.id.bt_star);
 
-
+            radioDone.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                   if(!radioDone.isSelected()){
+                       radioDone.setChecked(true);
+                       radioDone.setSelected(true);
+                   }else{
+                       radioDone.setChecked(false);
+                       radioDone.setSelected(false);
+                   }
+                }
+            });
         }
     }
 }
