@@ -2,6 +2,7 @@ package com.example.todolist;
 
 import android.content.Context;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class TaskMydayAdapter extends RecyclerView.Adapter<TaskMydayAdapter.ViewHolder> {
+    private ArrayList<DataTask> dataTasks;
+
+    public TaskMydayAdapter(ArrayList<DataTask> dataTask){
+        this.dataTasks = dataTask;
+    }
+
+    public void setDataTasks(ArrayList<DataTask> dataTasks) {
+        this.dataTasks = dataTasks;
+    }
+
+    public ArrayList<DataTask> getDataTasks() {
+        return dataTasks;
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -24,13 +42,17 @@ public class TaskMydayAdapter extends RecyclerView.Adapter<TaskMydayAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String nameTask = "Test "+ position;
+        DataTask objectDataTask = dataTasks.get(position);
+        String nameTask = objectDataTask.getValue();
+        boolean isDone = objectDataTask.getCheck();
+
         holder.tvName.setText(nameTask);
+        holder.radioDone.setChecked(isDone);
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+        return dataTasks.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -45,7 +67,18 @@ public class TaskMydayAdapter extends RecyclerView.Adapter<TaskMydayAdapter.View
             tvName = listItemView.findViewById(R.id.tv_task);
             btStar = listItemView.findViewById(R.id.bt_star);
 
-
+            radioDone.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                   if(!radioDone.isSelected()){
+                       radioDone.setChecked(true);
+                       radioDone.setSelected(true);
+                   }else{
+                       radioDone.setChecked(false);
+                       radioDone.setSelected(false);
+                   }
+                }
+            });
         }
     }
 }

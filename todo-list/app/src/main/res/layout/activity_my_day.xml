@@ -10,21 +10,53 @@
        android:layout_marginRight="6dp"
        android:id="@+id/rc_myday"
        android:layout_width="match_parent"
-       android:layout_height="wrap_content"/>
+       android:layout_height="wrap_content">
 
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_marginLeft="6dp"
-       android:layout_marginTop="16dp"
-       android:text="Đã hoàn thành"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintHorizontal_bias="0.018"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/rc_myday"
-       android:textSize="20dp"
+   </androidx.recyclerview.widget.RecyclerView>
+
+   <com.google.android.material.button.MaterialButton
+       android:id="@+id/btn_add_new"
+       style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+       android:layout_width="56dp"
+       android:layout_height="56dp"
+       android:text="+"
+       android:textAlignment="center"
        android:textColor="@color/white"
-       android:drawableLeft="@drawable/ic_outline_expand_more_24"
-       android:padding="4dp"
-       android:background="@drawable/background_boder_text_done"/>
+       android:textSize="25dp"
+       app:cornerRadius="28dp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.856"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.903" />
+
+   <!--   <TextView-->
+<!--       android:id="@+id/textView2"-->
+<!--       android:layout_width="wrap_content"-->
+<!--       android:layout_height="wrap_content"-->
+<!--       android:layout_marginLeft="6dp"-->
+<!--       android:layout_marginTop="24dp"-->
+<!--       android:background="@drawable/background_boder_text_done"-->
+<!--       android:drawableLeft="@drawable/ic_outline_expand_more_24"-->
+<!--       android:padding="4dp"-->
+<!--       android:text="Đã hoàn thành"-->
+<!--       android:textColor="@color/white"-->
+<!--       android:textSize="20dp"-->
+<!--       app:layout_constraintEnd_toEndOf="parent"-->
+<!--       app:layout_constraintHorizontal_bias="0.063"-->
+<!--       app:layout_constraintStart_toStartOf="parent"-->
+<!--       app:layout_constraintTop_toBottomOf="@+id/rc_myday" />-->
+
+<!--   <androidx.recyclerview.widget.RecyclerView-->
+<!--       android:id="@+id/rc_doneMyday"-->
+<!--       android:layout_width="405dp"-->
+<!--       android:layout_height="459dp"-->
+<!--       android:layout_marginTop="16dp"-->
+<!--       android:layout_marginLeft="6dp"-->
+<!--       android:layout_marginRight="6dp"-->
+<!--       app:layout_constraintEnd_toEndOf="parent"-->
+<!--       app:layout_constraintStart_toStartOf="parent"-->
+<!--       app:layout_constraintTop_toBottomOf="@+id/textView2" />-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
