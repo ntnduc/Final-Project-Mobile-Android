@@ -1,52 +1,54 @@
 package com.example.todolist;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
+import com.google.gson.JsonParser;
 
 public class MyDayActivity extends AppCompatActivity {
+    private AlertDialog.Builder builder;
+    private AlertDialog dialog;
+    private EditText nameNewTask;
+    private Button btnSave, btnCancle;
+
     RecyclerView recyclerView;
-    Button btnAddNew, btnSave;
+    Button btnAddNew;
     RadioButton radioMark;
-    EditText edText;
     String name;
     String id;
     Boolean mark;
+
     private ArrayList<DataTask> dataTasks = new ArrayList<DataTask>();
     final LoadingDialog loadingDialog = new LoadingDialog(MyDayActivity.this);
     TaskMydayAdapter adapter = new TaskMydayAdapter(dataTasks);
@@ -57,16 +59,14 @@ public class MyDayActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rc_myday);
         btnAddNew = findViewById(R.id.btn_add_new);
 
-
-
         btnAddNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                popupAddNew(view);
+                popupAddNew();
             }
         });
-        
 
+        //get data from backend
        //loading data
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url("http://192.168.2.116:5000/todo").build();
@@ -114,60 +114,91 @@ public class MyDayActivity extends AppCompatActivity {
     }
 
 
-    public void popupAddNew(View view){
+    //show dialog
+    //dialog show create
+    public void popupAddNew(){
+        builder = new AlertDialog.Builder(this);
+        final View contactPopupView = getLayoutInflater().inflate(R.layout.form_popup, null);
 
-        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popupView = inflater.inflate(R.layout.form_popup, null);
+        //set button ui
+        nameNewTask = contactPopupView.findViewById(R.id.ed_work);
+        radioMark = contactPopupView.findViewById(R.id.r_mark);
+        btnSave = contactPopupView.findViewById(R.id.btn_save);
 
-        btnSave = popupView.findViewById(R.id.btn_save);
-        edText = popupView.findViewById(R.id.ed_work);
-        radioMark = popupView.findViewById(R.id.radio_done);
+        //create popup
+        builder.setView(contactPopupView);
+        dialog = builder.create();
+        dialog.show();
 
-//        radioMark.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if(!radioMark.isSelected()){
-//                    radioMark.setChecked(true);
-//                    radioMark.setSelected(true);
-//                }else{
-//                    radioMark.setChecked(false);
-//                    radioMark.setSelected(false);
-//                }
-//            }
-//        });
-
-        btnSave.setOnClickListener(new View.OnClickListener() {
+        ////////////////
+        radioMark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                name = edText.getText().toString();
+                if(!radioMark.isSelected()){
+                    radioMark.setChecked(true);
+                    radioMark.setSelected(true);
+                }else{
+                    radioMark.setChecked(false);
+                    radioMark.setSelected(false);
+                }
+            }
+        });
+        
+        btnSave.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Boolean check;
+                name = nameNewTask.getText().toString();
+                check = name.matches("")?true:false;
+                if (check == true) {
+                    Toast.makeText(MyDayActivity.this, "Bạn cần nhập tên công việc", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 String id = String.valueOf(new Random().nextInt(10000));
                 mark = radioMark.isChecked();
                 //add new data
-//                dataTasks.add(new DataTask("8", "test", false, true));
-//                adapter.notifyDataSetChanged();
+                dataTasks.add(new DataTask(id, name, false, mark));
+                postData(new DataTask(id, name, false, mark));
+                adapter.notifyDataSetChanged();
+                dialog.dismiss();
             }
         });
+    }
 
-        //create the popup window
-        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+    //post data
+    private void postData(DataTask dataTask) {
+        String url = "http://192.168.2.116:5000/todo";
 
-        //create the popup window
-        boolean focusable = true;
-        final PopupWindow popupWindow = new PopupWindow(popupView,width, height, focusable);
+        JSONObject postData = new JSONObject();
 
-        // show the popup window
-        // which view you pass
-        popupWindow.showAtLocation(view, Gravity.CENTER,0,0);
+        try {
+            postData.put("value", dataTask.getValue());
+            postData.put("check", dataTask.getCheck());
+            postData.put("mark", dataTask.getMark());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
-        //dismiss the popup window when touched
-        popupView.setOnTouchListener(new View.OnTouchListener(){
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(com.android.volley.Request.Method.POST, url, postData, new com.android.volley.Response.Listener<JSONObject>() {
+
             @Override
-            public boolean onTouch(View v, MotionEvent event){
-                popupWindow.dismiss();
-                return true;
+            public void onResponse(JSONObject response) {
+                try {
+                    String status = response.getString("status");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("oke", error.toString());
             }
         });
+
+        VolleySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+
     }
 
 }

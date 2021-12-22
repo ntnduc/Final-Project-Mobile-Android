@@ -31,7 +31,7 @@ namespace WebApplication.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateTodo(Todos todo)
+        public IActionResult CreateTodo([FromBody]Todos todo)
         {
             var newTodo = _todoServices.CreateTodo(todo);
             return CreatedAtRoute("GetTodo", new { newTodo.Id }, newTodo);

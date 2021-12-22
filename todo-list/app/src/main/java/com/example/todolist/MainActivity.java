@@ -88,8 +88,6 @@ public class MainActivity extends AppCompatActivity {
                         dataTasks.add(dataItem);
                     }
 
-
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

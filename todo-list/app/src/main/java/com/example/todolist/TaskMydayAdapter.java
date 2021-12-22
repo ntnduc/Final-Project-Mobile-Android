@@ -9,12 +9,24 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class TaskMydayAdapter extends RecyclerView.Adapter<TaskMydayAdapter.ViewHolder> {
     private ArrayList<DataTask> dataTasks;
@@ -45,9 +57,26 @@ public class TaskMydayAdapter extends RecyclerView.Adapter<TaskMydayAdapter.View
         DataTask objectDataTask = dataTasks.get(position);
         String nameTask = objectDataTask.getValue();
         boolean isDone = objectDataTask.getCheck();
+        boolean isMark = objectDataTask.getMark();
 
         holder.tvName.setText(nameTask);
         holder.radioDone.setChecked(isDone);
+        if(isMark == true) {
+            holder.btStar.setVisibility(View.GONE);
+            holder.btStarMark.setVisibility(View.VISIBLE);
+        }else{
+            holder.btStarMark.setVisibility(View.GONE);
+            holder.btStar.setVisibility(View.VISIBLE);
+        }
+
+        holder.btStar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataTasks.get(position).setMark(true);
+                holder.btStar.setVisibility(View.GONE);
+                holder.btStarMark.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     @Override
@@ -59,13 +88,14 @@ public class TaskMydayAdapter extends RecyclerView.Adapter<TaskMydayAdapter.View
         private View listItemView;
         public RadioButton radioDone;
         public TextView tvName;
-        public Button btStar;
+        public Button btStar, btStarMark;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             listItemView = itemView;
             radioDone = listItemView.findViewById(R.id.radio_done);
             tvName = listItemView.findViewById(R.id.tv_task);
             btStar = listItemView.findViewById(R.id.bt_star);
+            btStarMark = listItemView.findViewById(R.id.bt_star_mark);
 
             radioDone.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -79,6 +109,15 @@ public class TaskMydayAdapter extends RecyclerView.Adapter<TaskMydayAdapter.View
                    }
                 }
             });
+
+            btStarMark.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    btStarMark.setVisibility(View.GONE);
+                    btStar.setVisibility(View.VISIBLE);
+                }
+            });
         }
     }
+
 }
